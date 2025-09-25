@@ -9,3 +9,17 @@ h1{
 .texto-verde{
     color: rgb(71, 112, 30);
 }
+
+.texto-tipo{
+    font-size: medium;
+    font-style: oblique;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(133, 70, 192);
+}
+
+.texto-subtitulo{
+    font-size: larger;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(71, 112, 30);
+}
