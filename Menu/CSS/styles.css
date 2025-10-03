@@ -1,0 +1,14 @@
+.menu{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgb(229, 147, 172);
+    border-color: rgb(116, 63, 167);
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.page-title{
+    position: relative;
+    color: rgb(238, 230, 247);
+}
