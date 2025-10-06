@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript</title>
+
 </head>
 <body>
     <header>
@@ -11,36 +12,27 @@
     </header>
 
         <p id="suma"></p>
+        <p id="resta"></p>
+        <p id="multiplicacion"></p>
+        <p id="division"></p>
 
-    <script>
-        //Declaraciòn de variables
-        var nombre;
-        let nombreUsuario;
-
-        let suma;
-        let resta;
-        let multiplicacion;
-        let division;
-        let mostrarResultado = document.getElementById("suma");
-
-
-
-        suma = 8 + 9;
-
-        resta = 50 - 10;
-
-        multiplicacion = 2 * 8;
-
-        division = 80 / 20;
-
-        console.log("Suma " + suma + ", resta " + resta + ", multiplicacion " + multiplicacion + ", division " + division);
-
-
-        //Pàrrafo en la pàgina web
-        mostrarResultado.innerHTML="El resultado es: " + suma;
         
 
-    </script>
+
+        <label for="">
+            Numero 1:
+            <input type="number" id="n1" placeholder="Ingresa primer numero">
+        </label>
+
+        <label for="">
+            Numero 2:
+            <input type="number" id="n2" placeholder="Ingresa segundo numero">
+        </label>
+
+        <button id="btnSumar"</button>
+
+
+        <script src="JS/app.js"></script>
 
 </body>
 </html>
