@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <header>
+        <h1>Formulario</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Datos</h2>
+            <form action="#">
+
+                <section>
+                    <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required placeholder="Escribe tu nombre">
+
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" required placeholder="Escribe tu apellido">
+                </section>
+                
+                <section>
+                    <label for="fecha">Fecha nacimiento:</label>
+                    <input type="time" id="fecha">
+                </section>
+                
+                <section>
+                    <label for="genero">Género:</label>
+                    <input type="radio" name="opcion" value="Hombre" id="hombre">
+                    <label for="hombre">Hombre</label>
+
+                    <input type="radio" name="opcion" value="Mujer" id="mujer">
+                    <label for="mujer">Mujer</label>
+
+                </section>
+                
+                <section>
+                    <input type="checkbox" id="aceptar" value="text" />
+                    <label for="cbox2">Aceptar</label>
+                </section>
+                
+
+                <div id="mostrarResultado"></div>
+
+                <button id="validar">Validar</button>
+
+            </form>
+        </section>
+    </main>
+</body>
+</html>
