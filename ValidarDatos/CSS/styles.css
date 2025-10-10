@@ -1,0 +1,14 @@
+h1{
+    color: rgb(122, 189, 189);
+}
+
+.box1{
+    margin: 30px;
+    padding: 20px;
+    border: 3px solid rgb(152, 89, 214);
+    background-color: rgb(145, 202, 235);
+}
+
+.buttom{
+    color: blueviolet;
+}
