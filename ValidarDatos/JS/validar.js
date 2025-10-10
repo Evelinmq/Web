@@ -8,9 +8,8 @@ const terminosInput = document.getElementById("aceptar");
 const resultadoDiv = document.getElementById("mostrarResultado");
 
 function validarDatos(event) {
-  event.preventDefault(); // evita el envío por defecto
+  event.preventDefault();
 
-  // Tomamos los valores
   const nombreValor = nombreInput.value.trim();
   const apellidoValor = apellidoInput.value.trim();
   const fechaValor = fechaInput.value;
@@ -20,7 +19,6 @@ function validarDatos(event) {
   let mensaje = "";
   let color = "red";
 
-  // Validaciones
   if (nombreValor === "") {
     mensaje = "Por favor, ingresa tu nombre.";
   } else if (apellidoValor === "") {
@@ -32,17 +30,14 @@ function validarDatos(event) {
   } else if (!terminosAceptados) {
     mensaje = "Debes aceptar los términos y condiciones.";
   } else {
-    mensaje = "✅ Datos ingresados correctamente.";
+    mensaje = "Datos ingresados correctamente.";
     color = "green";
   }
 
-  // Mostrar el mensaje
   resultadoDiv.innerHTML = `<p style="color:${color}">${mensaje}</p>`;
 
-  // Si todo está correcto, puedes enviar el formulario:
   if (color === "green") {
-    console.log("Formulario listo para enviarse");
-    // form.submit(); // ← descomenta si quieres enviar realmente
+    form.submit();
   }
 }
 
