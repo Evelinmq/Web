@@ -29,7 +29,7 @@ function guardarTareas() {
 /**
  * Crea y añade un nuevo elemento <li> a la lista de tareas.
  * @param {string} texto 
- * @param {boolean} completada - Si la tarea ya está marcada como completada.
+ * @param {boolean} completada
  */
 function crearElementoTarea(texto, completada = false) {
     const li = document.createElement('li');

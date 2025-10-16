@@ -54,7 +54,7 @@
     border-bottom: none;
 }
 
-/* Estilo para tareas completadas */
+/* Este sive para las tareas cuando estan completas */
 #listaTareas li.completada {
     text-decoration: line-through;
     color: #888;
