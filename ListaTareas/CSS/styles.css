@@ -34,26 +34,6 @@
     font-size: 16px;
 }
 
-#listaTareas {
-    list-style: none;
-    padding: 0;
-}
-
-#listaTareas li {
-    background-color: #fff;
-    border-bottom: 1px solid #eee;
-    padding: 15px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s, text-decoration 0.3s;
-    font-size: 18px;
-}
-
-#listaTareas li:last-child {
-    border-bottom: none;
-}
-
 /* Este sive para las tareas cuando estan completas */
 #listaTareas li.completada {
     text-decoration: line-through;
