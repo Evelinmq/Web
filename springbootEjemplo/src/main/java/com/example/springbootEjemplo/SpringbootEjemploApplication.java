@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringbootEjemploApplication {
 
 	public static void main(String[] args) {
-        //ishdoif
 		SpringApplication.run(SpringbootEjemploApplication.class, args);
 	}
 
