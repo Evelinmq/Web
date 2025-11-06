@@ -3,25 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mètodo Post</title>
+    <title>Método Post</title>
 </head>
 <body>
-    <form id="saludoForm">
-        <label for="nombre">
-            Nombre
-        </label>
-        <input type="text" id="nombre">
-        <label for="apellido">
-            Apellido
-        </label>
-        <input type="text" id="apellido">
-        <button type="submit">Enviar</button>
-    </form>
+    <header>
+        <h1>Formulario</h1>
+    </header>
+    <main>
+        <form action="http://localhost:8080/saludo" method="post" class="formulario">
+            <label for="nombre">
+                Nombre
+            </label>
+            <input type="text" id="nombre" class="campoObligatorio">
+            <label for="apellido">
+                Apellido
+            </label>
+            <input type="text" id="apellido" class="campoObligatorio">
 
-    <h2>Respuesta del servidor</h2>
-    <pre id="respuesta"></pre>
+            <label for="correo">
+                Correo
+            </label>
+            <input type="text" id="correo" class="campoObligatorio">
 
-    <script src="">
+            <label for="contraseña">
+                Contraseña
+            </label>
+            <input type="password" id="contraseña" class="campoObligatorio">
+
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="mostrarError">
+
+        </div>
+
+    </main>
+    <script src="app.js">
 
     </script>
 </body>
