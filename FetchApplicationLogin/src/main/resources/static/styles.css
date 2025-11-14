@@ -1,0 +1,19 @@
+.valid {
+    border: 2px solid green;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+.h1{
+    color: #2d1149;
+    font-weight: bold;
+    font-family:  monospace;
+}
+
+.h3{
+    color: #49113e;
+    font-weight: bold;
+    font-family:  monospace;
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Método POST - Spring Boot</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <h1>Ejemplo de método POST con Spring Boot</h1>
@@ -21,14 +22,14 @@
     <label for="nacimiento">Fecha de Nacimiento:</label><br>
     <input type="date" id="nacimiento" required><br><br>
 
-    <label for="genero">Género:</label><br>
-    <input type="radio" id="masculino" required><br><br>
-    <input type="radio" id="femenino" required><br><br>
+    <label>Género:</label><br>
+    <input type="radio" name="genero" value="Hombre" required> Hombre<br>
+    <input type="radio" name="genero" value="Mujer" required> Mujer<br><br>
 
     <label for="contrasena">Contraseña:</label><br>
     <input type="password" id="contrasena" required><br><br>
 
-    <label for="contrasenados">Apellido:</label><br>
+    <label for="contrasenados">Confirmar contraseña:</label><br>
     <input type="password" id="contrasenados" required><br><br>
 
     <button type="submit">Enviar</button>
@@ -38,13 +39,46 @@
 
 <script>
 
+    const inputs = document.querySelectorAll("input[type='text'], input[type='password'], input[type='date']");
+
+    inputs.forEach(input => {
+        input.addEventListener("keyup", () => {
+            if (input.value.trim() === "") {
+                input.classList.remove("valid");
+                input.classList.add("invalid");
+            } else {
+                input.classList.remove("invalid");
+                input.classList.add("valid");
+            }
+        });
+    });
+
+    // Validación especial para confirmar contraseña
+    const pass1 = document.getElementById("contrasena");
+    const pass2 = document.getElementById("contrasenados");
+
+    pass2.addEventListener("keyup", () => {
+        if (pass1.value !== "" && pass1.value === pass2.value) {
+            pass2.classList.add("valid");
+            pass2.classList.remove("invalid");
+        } else {
+            pass2.classList.add("invalid");
+            pass2.classList.remove("valid");
+        }
+    });
+
+    //
+
     const form = document.getElementById("saludoForm");
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
         const datos = {
             nombre: document.getElementById("nombre").value,
-            apellido: document.getElementById("apellido").value
+            apellido: document.getElementById("apellido").value,
+            apellidoM: document.getElementById("apellidoM").value,
+            contrasena: document.getElementById("contrasena").value,
+            contrasenados: document.getElementById("contrasenados").value
         };
 
         const respuesta = await fetch("/saludo", {
@@ -56,6 +90,8 @@
         const json = await respuesta.json();
         document.getElementById("respuesta").textContent = json.mensaje;
     });
+
+
 </script>
 </body>
 </html>
