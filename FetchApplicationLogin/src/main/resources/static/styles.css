@@ -6,14 +6,32 @@
     border: 2px solid red;
 }
 
-.h1{
+h1{
     color: #2d1149;
     font-weight: bold;
-    font-family:  monospace;
+    font-family:  "Times New Roman", Times, serif;
+    background-color: #5b8080;
 }
 
-.h3{
+h3{
     color: #49113e;
     font-weight: bold;
-    font-family:  monospace;
+    font-family:  "Times New Roman", Times, serif;
+}
+
+.label{
+    font-family:  "Times New Roman", Times, serif;
+    font-weight: inherit;
+    color: #0e1a43;
+}
+
+.btn{
+    font-family:  "Times New Roman", Times, serif;
+    background-color: #672172;
+    color: white;
+    border: none;
+}
+
+.input{
+    width: max-content;
 }
