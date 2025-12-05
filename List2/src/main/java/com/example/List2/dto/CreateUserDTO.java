@@ -1,16 +1,15 @@
 package com.example.List2.dto;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class CreateUserDTO {
     @NotBlank(message = "El nombre es obligatorio")
     @Size(min = 2, max = 50, message = "El nombre debe terner entre 2 y 50 caracteres")
     private String name;
 
-    @NotBlank(message = "La edad es obligatoria")
-    @Size(min = 1, max = 3, message = "La edad debe terner entre 1 y 3 digitos")
+    @NotNull(message = "La edad es obligatoria")
+    @Min(1)
+    @Max(120)
     private int edad;
 
     @NotBlank(message = "El género es obligatorio")

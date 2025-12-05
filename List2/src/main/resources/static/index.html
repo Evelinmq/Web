@@ -42,10 +42,10 @@
 <br>
 <label for="genero">Género:</label>
 <select id="genero" name="genero" aria-label="Género">
-    <option value="femenino">Femenino</option>
-    <option value="masculino">Masculino</option>
-    <option value="no-binario">No binario</option>
-    <option value="prefiero-no-decirlo">Prefiero no decirlo</option>
+    <option value="Femenino">Femenino</option>
+    <option value="Masculino">Masculino</option>
+    <option value="NoBinario">No binario</option>
+    <option value="PrefieroNoDecirlo">Prefiero no decirlo</option>
 </select>
 
 <button onclick="createUser()">Crear</button>
@@ -63,6 +63,75 @@
 <h2>Listar Usuarios</h2>
 <button onclick="loadUsers()">Cargar Lista</button>
 <div id="user-list"></div>
+
+<script>
+    async function createUser() {
+        const nombre = document.getElementById("name").value;
+        const edad = document.getElementById("edad").value;
+        const genero = document.getElementById("genero").value;
+
+        const msg = document.getElementById("create-msg");
+        msg.innerHTML = "";
+
+        const response = await fetch("/users", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ name: nombre, edad, genero })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            msg.innerHTML = `<span class="error">Error: ${JSON.stringify(data.errors)}</span>`;
+        } else {
+            msg.innerHTML = `<span class="success">Usuario creado con ID ${data.id}</span>`;
+        }
+    }
+
+    async function getUser() {
+        const id = document.getElementById("userId").value;
+        const container = document.getElementById("user-result");
+        container.innerHTML = "";
+
+        const response = await fetch("/users/" + id);
+
+        if (!response.ok) {
+            container.innerHTML = "<p class='error'>Usuario no encontrado</p>";
+            return;
+        }
+
+        const user = await response.json();
+
+        container.innerHTML = `
+        <div class="user-card">
+            <b>ID:</b> ${user.id}<br>
+            <b>Nombre:</b> ${user.name}<br>
+            <b>Edad:</b> ${user.edad}<br>
+            <b>Género:</b> ${user.genero}
+        </div>
+        `;
+    }
+
+    async function loadUsers() {
+        const container = document.getElementById("user-list");
+        container.innerHTML = "";
+
+        const response = await fetch("/users");
+        const users = await response.json();
+
+        users.forEach(user => {
+            container.innerHTML += `
+            <div class="user-card">
+                <b>ID:</b> ${user.id}<br>
+                <b>Nombre:</b> ${user.name}<br>
+                <b>Edad:</b> ${user.edad}<br>
+                <b>Género:</b> ${user.genero}
+            </div>
+            `;
+        });
+    }
+</script>
+
 
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.example.List2.service;
 
 import com.example.List2.dto.CreateUserDTO;
 import com.example.List2.model.User;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -18,7 +19,7 @@ public class UserService {
     public UserService() {
         save(new CreateUserDTO("Carmen", 23, "Femenino"));
         save(new CreateUserDTO("Roberto", 50, "Masculino"));
-        save(new CreateUserDTO("Maria", 30, "Prefiero no decirlo"));
+        save(new CreateUserDTO("Maria", 30, "PrefieroNoDecirlo"));
     }
 
     public User save(CreateUserDTO dto) {
@@ -28,7 +29,7 @@ public class UserService {
         return user;
     }
 
-    public Optional<User> fingById(Long id) {
+    public Optional<User> findById(Long id) {
         return Optional.ofNullable(storage.get(id));
     }
 
@@ -41,6 +42,18 @@ public class UserService {
                     .collect(Collectors.toList());
         }
         int from = page * size;
-        if (from > all.size()) {}
+        if (from > all.size()) return Collections.emptyList();
+        int to = Math.min(from + size, all.size());
+        return all.subList(from, to);
     }
+
+    public Optional<User> update(Long id, CreateUserDTO dto) {
+        User existing = storage.get(id);
+        if (existing == null) return Optional.empty();
+        existing.setName(dto.getName());
+        existing.setEdad(dto.getEdad());
+        existing.setGenero(dto.getGenero());
+        return Optional.of(existing);
+    }
+
 }
